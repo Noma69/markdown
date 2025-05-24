@@ -103,7 +103,7 @@ git push
 
 Voici un exemple d’insertion d’image dans le fichier Markdown :
 
-![Dépôt Github](C:\Users\nomat\markdown\docs\images\Capture d'écran 2025-05-24 155007.png)
+![Dépôt Github](images\Capture d'écran 2025-05-24 155007.png)
 
 ---
 
