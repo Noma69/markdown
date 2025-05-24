@@ -1,0 +1,288 @@
+/* styles.css - Adapté pour la structure HTML fournie */
+
+/* --- Importation des Polices Google --- */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Montserrat:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap');
+
+/* --- Variables CSS --- */
+:root {
+  --font-family-serif: 'Merriweather', Georgia, serif;
+  --font-family-sans-serif: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-family-monospace: 'Fira Code', SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-size-base: 17px;
+  --line-height-base: 1.7;
+  --line-height-heading: 1.3;
+  --color-text: #2c3e50;
+  --color-text-light: #546e7a;
+  --color-background-page: #f4f6f8; /* Fond extérieur à la "page" */
+  --color-background-content: #ffffff; /* Fond de la "page" de contenu */
+  --color-primary: #3498db;
+  --color-primary-dark: #2980b9;
+  --color-border: #e0e6ed;
+  --color-code-background: #2d2d2d; /* Thème sombre pour le code */
+  --color-code-text: #f8f8f2;       /* Texte clair pour le code */
+  --color-blockquote-border: var(--color-primary);
+  --color-table-header-bg: #e9ecef;
+  --spacing-unit: 1rem; /* 17px */
+  --content-max-width: 880px; /* Largeur max de la "page" de contenu */
+  --box-shadow-card: 0 8px 25px rgba(44, 62, 80, 0.1);
+  --border-radius: 8px;
+}
+
+/* --- Styles Globaux et Corps de Page --- */
+html {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  background-color: var(--color-background-page); /* Fond global de la fenêtre */
+}
+
+body {
+  font-family: var(--font-family-serif);
+  color: var(--color-text);
+  background-color: var(--color-background-content); /* Fond de la "carte" de contenu */
+  margin: calc(var(--spacing-unit) * 2) auto; /* Centrer la "carte" */
+  padding: calc(var(--spacing-unit) * 2.5) calc(var(--spacing-unit) * 3);
+  max-width: var(--content-max-width);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-card);
+  overflow-x: hidden; /* Éviter le scroll horizontal si un élément dépasse */
+}
+
+/* --- Titre Principal du Document (Pandoc) --- */
+header#title-block-header {
+  text-align: center;
+  margin-bottom: calc(var(--spacing-unit) * 2.5);
+  padding-bottom: var(--spacing-unit);
+  border-bottom: 1px solid var(--color-border);
+}
+header#title-block-header h1.title {
+  font-family: var(--font-family-sans-serif);
+  font-size: 2.8rem; /* 47.6px */
+  font-weight: 700;
+  color: var(--color-text);
+  margin-top: 0;
+  margin-bottom: calc(var(--spacing-unit) * 0.5);
+  line-height: 1.2;
+}
+
+/* --- Titres de Section --- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-sans-serif);
+  margin-top: calc(var(--spacing-unit) * 2.2);
+  margin-bottom: calc(var(--spacing-unit) * 0.9);
+  font-weight: 600;
+  line-height: var(--line-height-heading);
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+
+/* Style spécifique pour les h1 qui ne sont pas le titre principal du document */
+body > h1:not(.title) { /* Cible les h1 enfants directs de body, sauf .title */
+  font-size: 2.2rem; /* 37.4px */
+  font-weight: 700;
+  margin-top: calc(var(--spacing-unit) * 2.5);
+  border-bottom: 2px solid var(--color-primary);
+  padding-bottom: calc(var(--spacing-unit) * 0.4);
+}
+h2 {
+  font-size: 1.8rem; /* 30.6px */
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: calc(var(--spacing-unit) * 0.3);
+}
+h3 { font-size: 1.5rem; /* 25.5px */ }
+h4 { font-size: 1.25rem; /* 21.25px */ color: var(--color-text-light); font-weight: 600; }
+h5 { font-size: 1.1rem; /* 18.7px */ color: var(--color-text-light); }
+h6 { font-size: 1rem; /* 17px */ color: var(--color-text-light); text-transform: uppercase; letter-spacing: 0.05em;}
+
+/* --- Paragraphes et Texte --- */
+p {
+  margin-top: 0;
+  margin-bottom: calc(var(--spacing-unit) * 1.1);
+}
+strong, b { font-weight: 700; }
+em, i { font-style: italic; }
+
+/* --- Liens --- */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+  border-bottom: 1px solid transparent;
+}
+a:hover, a:focus {
+  color: var(--color-primary-dark);
+  border-bottom-color: var(--color-primary-dark);
+}
+
+/* --- Lignes Horizontales --- */
+hr {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), var(--color-border), rgba(0, 0, 0, 0));
+  margin: calc(var(--spacing-unit) * 2.5) 0;
+}
+
+/* --- Listes --- */
+ul, ol {
+  padding-left: calc(var(--spacing-unit) * 1.8);
+  margin-top: 0;
+  margin-bottom: var(--spacing-unit);
+}
+ul ul, ol ol, ul ol, ol ul {
+  margin-bottom: 0;
+  margin-top: calc(var(--spacing-unit) * 0.5);
+}
+li { margin-bottom: calc(var(--spacing-unit) * 0.5); }
+ul li::marker { color: var(--color-primary); }
+/* Pandoc gère déjà bien les task-list-item, on peut les laisser par défaut ou les surcharger */
+
+/* --- Blocs de Citation --- */
+blockquote {
+  margin: calc(var(--spacing-unit) * 1.5) 0;
+  padding: var(--spacing-unit) calc(var(--spacing-unit) * 1.5);
+  border-left: 4px solid var(--color-blockquote-border);
+  background-color: #f9f9f9; /* Un gris encore plus léger */
+  color: var(--color-text-light);
+  font-style: italic;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+blockquote p:last-child { margin-bottom: 0; }
+
+/* --- Code (en ligne et blocs) --- */
+/* Code en ligne (pas dans un <pre>) */
+code:not(pre > code) {
+  font-family: var(--font-family-monospace);
+  padding: 0.25em 0.5em;
+  margin: 0 0.1em;
+  font-size: 0.88em;
+  background-color: #eef0f2; /* Fond clair pour code en ligne */
+  border: 1px solid #dfe3e6;
+  border-radius: 4px;
+  color: #394b59;
+}
+
+/* Blocs de code (Pandoc utilise div.sourceCode > pre > code) */
+/* Ceci stylisera le bloc id="cb1" (votre source Markdown) et les autres (Dockerfile, YAML) */
+div.sourceCode {
+  margin: calc(var(--spacing-unit) * 1.5) 0;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-card); /* Ombre pour le bloc */
+  background-color: var(--color-code-background); /* Fond sombre */
+  overflow: hidden; /* Nécessaire pour que le border-radius sur pre fonctionne bien */
+}
+div.sourceCode pre.sourceCode { /* Cible le <pre> à l'intérieur */
+  margin: 0; /* Pandoc met déjà un margin sur div.sourceCode */
+  padding: calc(var(--spacing-unit) * 1.2);
+  font-family: var(--font-family-monospace) !important;
+  font-size: 0.9em;
+  line-height: 1.5;
+  color: var(--color-code-text); /* Texte clair */
+  overflow: auto; /* Scroll si nécessaire */
+  border: none; /* On met la bordure et l'ombre sur la div externe */
+  background-color: transparent; /* Le fond est sur la div */
+}
+/* Pour s'assurer que le code à l'intérieur du pre hérite bien */
+div.sourceCode pre.sourceCode code.sourceCode {
+  font-family: inherit !important;
+  color: inherit;
+  background-color: transparent;
+  white-space: pre; /* Important pour la préservation des espaces/retours ligne */
+}
+
+/* La coloration syntaxique de Pandoc (code span.kw, etc.) devrait toujours fonctionner par-dessus ces styles de fond/texte */
+
+/* --- Images --- */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: calc(var(--spacing-unit) * 1.5) auto;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+figure { margin: calc(var(--spacing-unit) * 1.5) 0; }
+figcaption {
+  font-size: 0.9em; color: var(--color-text-light);
+  text-align: center; margin-top: calc(var(--spacing-unit) * 0.6);
+  font-style: italic;
+}
+
+/* --- Tableaux --- */
+table {
+  width: 100%;
+  margin-bottom: calc(var(--spacing-unit) * 1.5);
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  overflow: hidden;
+}
+table th, table td { /* Surcharger les styles de github-markdown.css si besoin */
+  padding: calc(var(--spacing-unit) * 0.7) var(--spacing-unit);
+  vertical-align: top;
+  border-bottom: 1px solid var(--color-border);
+  text-align: left;
+}
+table td:not(:last-child), table th:not(:last-child) {
+  border-right: 1px solid var(--color-border);
+}
+table thead th {
+  background-color: var(--color-table-header-bg);
+  font-weight: 600;
+  font-family: var(--font-family-sans-serif);
+  color: var(--color-text);
+  border-bottom-width: 2px;
+  border-bottom-color: var(--color-primary);
+}
+table tbody tr:last-child td { border-bottom: none; }
+table tbody tr:nth-of-type(even) { background-color: #fcfdff; }
+
+/* --- Notes de bas de page (si Pandoc les génère) --- */
+.footnotes {
+  margin-top: calc(var(--spacing-unit) * 2.5);
+  padding-top: var(--spacing-unit);
+  border-top: 1px dashed var(--color-border);
+  font-size: 0.9em;
+  color: var(--color-text-light);
+}
+/* Les styles par défaut de github-markdown.css pour les footnotes sont corrects */
+
+
+/* --- Styles pour l'Impression --- */
+@media print {
+  :root {
+    --color-background-page: #fff;
+    --color-background-content: #fff;
+    --color-text: #000;
+    --color-primary: #000;
+    --box-shadow-card: none;
+    --color-code-background: #f0f0f0; /* Fond clair pour code en impression */
+    --color-code-text: #000;
+  }
+  html { background-color: #fff; }
+  body {
+    font-size: 11pt;
+    padding: 1cm; /* Marges d'impression */
+    margin: 0;
+    max-width: none;
+    box-shadow: none;
+    border-radius: 0;
+  }
+  header#title-block-header { text-align: left; border-bottom: 1px solid #ccc; }
+  header#title-block-header h1.title { font-size: 24pt; }
+
+  h1, h2, h3 { page-break-after: avoid; }
+  table, pre, blockquote, img { page-break-inside: avoid; }
+  div.sourceCode { box-shadow: none; border: 1px solid #ccc; }
+
+  a { text-decoration: underline !important; color: #000 !important; }
+  a[href^="http"]:after, a[href^="https"]:after {
+    content: " (" attr(href) ")";
+    font-size: 0.9em;
+    font-weight: normal;
+  }
+  /* Cacher les éléments non pertinents pour l'impression */
+  .no-print { display: none !important; }
+}
